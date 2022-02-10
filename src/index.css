@@ -1,0 +1,120 @@
+* {
+	box-sizing: border-box;
+}
+
+.b-upload-container {
+  display: none;
+}
+
+.b-upload-btn-style {
+  padding: 10px;
+  background-color: #ed1973;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  border: none;
+}
+
+.b-upload-container.is-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	background-color: rgba(0, 0, 0, .3);
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 9999;
+}
+
+.b-preview {
+  margin-top: 10px;
+  display: flex;
+}
+
+.b-preview img {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.b-upload-wrapper {
+  width: 400px;
+  padding-bottom: 30px;
+  overflow: hidden;
+
+  background-color: #fff;
+  box-shadow: slategrey;
+}
+
+.b-upload-header {
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.b-upload-content {
+  padding: 10px;
+}
+
+.b-upload-tabs {
+  border: 1px solid #ccc;
+}
+
+.b-upload-tabs span {
+  display: inline-block;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.b-upload-tabs span:first-child {
+  border-right: 1px solid #ccc;
+}
+
+.b-upload-tabs span.is-active {
+  border-bottom: 3px solid #ed1973;
+}
+
+.b-upload-canvas {
+  display: flex;
+}
+
+.b-upload-canvas .b-upload-canvas-front {
+  transition: transform .3s ease;
+  transform: translateX(-100%);
+}
+.b-upload-canvas .b-upload-canvas-front.is-active {
+  transform: translateX(0);
+}
+
+.b-upload-canvas .b-upload-canvas-back {
+  transition: transform .3s ease;
+  transform: translateX(0);
+}
+.b-upload-canvas .b-upload-canvas-back.is-active {
+  transform: translateX(-100%);
+}
+
+.b-upload-btn {
+  display: flex;
+  justify-content: center;
+}
+.b-upload-btn input {
+  display: none;
+}
+
+.b-upload-btn label {
+  padding: 10px;
+  background-color: #ed1973;
+  color: #fff;
+}
+
+.b-upload-confirm {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
