@@ -87,15 +87,18 @@ export function App({ front, back }) {
             <div className="b-upload-canvas">
               <div className={`b-upload-canvas-front ${tabActive === 'front' ? 'is-active' : ''}`}>
                 <Canvas img={front} background={frontBackground} type="front"/>
+                <div className="b-upload-btn">
+                  <label htmlFor="b-upload-front" className="b-upload-btn-style">Upload Image</label>
+                  <input id="b-upload-front" type="file" name="b-image-upload-front" onChange={handleUpload} accept="image/png, image/jpeg"/>
+                </div>
               </div>
               <div className={`b-upload-canvas-back ${tabActive === 'back' ? 'is-active' : ''}`}>
                 <Canvas img={back} background={backBackground} type="back"/>
+                <div className="b-upload-btn">
+                  <label htmlFor="b-upload-back" className="b-upload-btn-style">Upload Image</label>
+                  <input id="b-upload-back" type="file" name="b-image-upload-back" onChange={handleUpload} accept="image/png, image/jpeg"/>
+                </div>
               </div>
-            </div>
-
-            <div className="b-upload-btn">
-              <label htmlFor="b-upload" className="b-upload-btn-style">Upload Image</label>
-              <input id="b-upload" type="file" name="b-image-upload" onChange={handleUpload} accept="image/png, image/jpeg"/>
             </div>
             <div className="b-upload-confirm">
               <button type="button" className="b-upload-btn-style" onClick={() => handleConfirm()}>Confirm</button>
