@@ -122,3 +122,13 @@
   display: flex;
   justify-content: center;
 }
+
+.b-upload-canvas > div  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.b-upload-canvas > div input[type="range"] {
+  width: 90%;
+}

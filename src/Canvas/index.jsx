@@ -46,6 +46,15 @@ const Canvas = ({ img, background, type, onConfirm }) => {
 
       const scaleBy = 1.2;
 
+      const rangeEl = document.querySelector('#b-range');
+      rangeEl.oninput = () => {
+        const bgWidth = backgroundImg.width();
+        const newScale = 1 + rangeEl.value / bgWidth;
+        backgroundImg.scale({ x: newScale, y: newScale })
+        console.log(1 + rangeEl.value / bgWidth);
+      }
+
+
       stage.on('wheel', (e) => {
         e.evt.preventDefault();
 
@@ -90,7 +99,10 @@ const Canvas = ({ img, background, type, onConfirm }) => {
   // }, [background, img])
 
   return (
-    <div id={`b-canvas-${type}`} />
+    <>
+      <div id={`b-canvas-${type}`} />
+      {background && <input type="range" min="-200" max="500" step="5" value="0" id="b-range"/>}
+    </>
   )
 }
 
