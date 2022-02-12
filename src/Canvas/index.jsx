@@ -46,7 +46,7 @@ const Canvas = ({ img, background, type, onConfirm }) => {
 
       const scaleBy = 1.2;
 
-      const rangeEl = document.querySelector('#b-range');
+      const rangeEl = document.querySelector(`#b-range-${type}`);
       rangeEl.oninput = () => {
         const bgWidth = backgroundImg.width();
         const newScale = 1 + rangeEl.value / bgWidth;
@@ -101,7 +101,7 @@ const Canvas = ({ img, background, type, onConfirm }) => {
   return (
     <>
       <div id={`b-canvas-${type}`} />
-      {background && <input type="range" min="-200" max="500" step="5" value="0" id="b-range"/>}
+      {background && <input type="range" min="-200" max="500" step="5" value="0" id={`b-range-${type}`}/>}
     </>
   )
 }
