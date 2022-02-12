@@ -30,6 +30,10 @@
   z-index: 9999;
 }
 
+.b-properties input {
+  display: none;
+}
+
 .b-preview {
   margin-top: 10px;
   display: flex;

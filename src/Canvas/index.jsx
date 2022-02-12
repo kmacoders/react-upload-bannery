@@ -20,7 +20,7 @@ const Canvas = ({ img, background, type, onConfirm }) => {
         y: 0,
         image: shirtImg,
         width: 400,
-        height: 400 * shirtImg.height / shirtImg.width,
+        height: 500,
       });
       backgroundImg.listening(false);
       group1.add(backgroundImg)

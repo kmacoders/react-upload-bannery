@@ -10,6 +10,8 @@ export function App({ front, back }) {
   const [canvasFrontImg, setCanvasFrontImg] = useState('');
   const [canvasBackImg, setCanvasBackImg] = useState('');
   const [isConfirm, setIsConfirm] = useState(false);
+  const [frontFileOriginal, setFrontFileOriginal] = useState();
+  const [backFileOriginal, setBackFileOriginal] = useState();
 
 
   const handleUpload = (e) => {
@@ -17,9 +19,11 @@ export function App({ front, back }) {
     if (file) {
       const imgUpl = URL.createObjectURL(file)
       if (tabActive === 'front') {
-        setFrontBackground(imgUpl)
+        setFrontBackground(imgUpl);
+        setFrontFileOriginal(e.target.files)
       } else {
-        setBackBackground(imgUpl)
+        setBackFileOriginal(e.target.files)
+        setBackBackground(imgUpl);
       }
     }
   }
@@ -41,11 +45,26 @@ export function App({ front, back }) {
 
     const container2 = new DataTransfer();
     container2.items.add(fileBack);
-    document.querySelector('input#b-input-front').files = container1.files;
-    document.querySelector('input#b-input-back').files = container2.files;
+
+    handleCreateElement('properties[Front]', 'b-input-front', container1.files);
+    handleCreateElement('properties[Back]', 'b-input-back', container2.files);
+
+    frontFileOriginal && handleCreateElement('properties[Front Original]', 'b-input-front-original', frontFileOriginal);
+    backFileOriginal && handleCreateElement('properties[Back Original]', 'b-input-back-original', backFileOriginal);
 
     setIsPopup(false)
 
+  }
+
+  const handleCreateElement = (name, id, files) => {
+    const propertiesWrapperEl = document.querySelector('.b-properties');
+    const inputEl = document.createElement('input');
+    inputEl.name = name;
+    inputEl.type = 'file'
+    inputEl.id = id;
+    inputEl.files = files;
+
+    propertiesWrapperEl.appendChild(inputEl);
   }
   return (
     <>
@@ -54,8 +73,7 @@ export function App({ front, back }) {
         {canvasFrontImg && <img src={canvasFrontImg} alt="Front" />}
         {canvasFrontImg && <img src={canvasBackImg} alt="Back" />}
       </div>
-      <input type="file" id="b-input-front" name="properties[Front]" />
-      <input type="file" id="b-input-back" name="properties[Back]" />
+      <div className="b-properties"></div>
       {isPopup && <div className="b-upload-container is-active" onClick={() => setIsPopup(false)}>
         <div className="b-upload-wrapper" onClick={(e) => e.stopPropagation()}>
           <div className="b-upload-header">
