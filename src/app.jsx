@@ -46,8 +46,8 @@ export function App({ front, back }) {
     const container2 = new DataTransfer();
     container2.items.add(fileBack);
 
-    handleCreateElement('properties[Front]', 'b-input-front', container1.files);
-    handleCreateElement('properties[Back]', 'b-input-back', container2.files);
+    frontBackground && handleCreateElement('properties[Front]', 'b-input-front', container1.files);
+    backBackground && handleCreateElement('properties[Back]', 'b-input-back', container2.files);
 
     frontFileOriginal && handleCreateElement('properties[Front Original]', 'b-input-front-original', frontFileOriginal);
     backFileOriginal && handleCreateElement('properties[Back Original]', 'b-input-back-original', backFileOriginal);
@@ -70,8 +70,8 @@ export function App({ front, back }) {
     <>
       <button type="button" class="bannerys-upload__btn b-upload-btn-style" onClick={() => setIsPopup(true)}>Upload</button>
       <div className="b-preview">
-        {canvasFrontImg && <img src={canvasFrontImg} alt="Front" />}
-        {canvasFrontImg && <img src={canvasBackImg} alt="Back" />}
+        {(canvasFrontImg && frontBackground) && <img src={canvasFrontImg} alt="Front" />}
+        {(canvasFrontImg && backBackground) && <img src={canvasBackImg} alt="Back" />}
       </div>
       <div className="b-properties"></div>
       {isPopup && <div className="b-upload-container is-active" onClick={() => setIsPopup(false)}>
