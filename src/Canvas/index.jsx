@@ -51,7 +51,7 @@ const Canvas = ({ img, background, type, onConfirm }) => {
         const bgWidth = backgroundImg.width();
         const newScale = 1 + rangeEl.value / bgWidth;
         backgroundImg.scale({ x: newScale, y: newScale })
-        console.log(1 + rangeEl.value / bgWidth);
+        rangeEl.nextElementSibling.innerHTML = `${rangeEl.value/5}%`
       }
 
 
@@ -101,7 +101,12 @@ const Canvas = ({ img, background, type, onConfirm }) => {
   return (
     <>
       <div id={`b-canvas-${type}`} />
-      {background && <input type="range" min="-200" max="500" step="5" value="0" id={`b-range-${type}`}/>}
+      {background && (
+        <>
+          <input type="range" min="-500" max="500" step="5" value="0" id={`b-range-${type}`} />
+          <output style={{ margin: "5px 0"}}/>
+        </>
+      )}
     </>
   )
 }
