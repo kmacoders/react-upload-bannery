@@ -7,12 +7,23 @@
 }
 
 .b-upload-btn-style {
-  padding: 10px;
+  padding: 20px !important;
+  width: 320px;
+  heigh: 80px !important;
+  display: flex;
+  justify-content: center;
+  align-item: center;
   background-color: #ed1973;
   color: #fff;
   outline: none;
   cursor: pointer;
   border: none;
+  font-size: 22px;
+}
+
+.bannerys-upload__btn {
+  width: 100px;
+  heigh: 60px !important;
 }
 
 .b-upload-container.is-active {
