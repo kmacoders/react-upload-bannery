@@ -2,8 +2,6 @@ import Canvas from "./Canvas";
 import { useState } from "preact/compat";
 import postCanvasToFile from "./helpers/canvasToURL";
 
-var productTitle;
-
 export function App({ front, back }) {
   const [tabActive, setTabActive] = useState("front");
   const [isPopup, setIsPopup] = useState(false);
@@ -14,7 +12,7 @@ export function App({ front, back }) {
   const [isConfirm, setIsConfirm] = useState(false);
   const [frontFileOriginal, setFrontFileOriginal] = useState();
   const [backFileOriginal, setBackFileOriginal] = useState();
-  const title = productTitle ||  '';
+  const title = window.productTitle ||  '';
 
   const handleUpload = (e) => {
     const [file] = e.target.files;
