@@ -13,12 +13,16 @@
   display: flex;
   justify-content: center;
   align-item: center;
-  background-color: #2d2f77;
+  background-color: #ed1973;
   color: #fff;
   outline: none;
   cursor: pointer;
   border: none;
   font-size: 22px;
+}
+
+.b-upload-btn-style.is-blue {
+  background-color: #2d2f77;
 }
 
 .bannerys-upload__btn {
@@ -124,7 +128,7 @@
 
 .b-upload-btn label {
   padding: 10px;
-  background-color: #2d2f77;
+  background-color: #ed1973;
   color: #fff;
 }
 

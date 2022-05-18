@@ -191,7 +191,7 @@ export function App({ front, back }) {
               <div className="b-upload-confirm">
                 <button
                   type="button"
-                  className="b-upload-btn-style"
+                  className="b-upload-btn-style is-blue"
                   onClick={() => handleConfirm()}
                 >
                   Next
