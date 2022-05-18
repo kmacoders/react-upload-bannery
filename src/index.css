@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   align-item: center;
-  background-color: #ed1973;
+  background-color: #2d2f77;
   color: #fff;
   outline: none;
   cursor: pointer;
@@ -124,7 +124,7 @@
 
 .b-upload-btn label {
   padding: 10px;
-  background-color: #ed1973;
+  background-color: #2d2f77;
   color: #fff;
 }
 
